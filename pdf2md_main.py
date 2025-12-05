@@ -242,10 +242,12 @@ def main(input_doc_path, output_dir):
         traceback.print_exc()
 
 if __name__ == "__main__":
-    data_folder = Path(__file__).parent / "/Users/gr/Documents/kokusi/"
-    output_dir = Path("/Users/gr/Documents/notes/QAssist")
-    input_doc_path = data_folder / "Na.pdf"
-    main(input_doc_path, output_dir)
-    #for input_doc_path in data_folder.glob("*.pdf"):
-    #    main(input_doc_path, output_dir)
+    data_folder = Path("/path/to/your/PDFs/directory/")
+    output_dir = Path("/path/to/your/output/directory/")
+    #input_doc_path = data_folder / "your_file.pdf"
+    #main(input_doc_path, output_dir)
+    duplicated = [f.stem for f in output_dir.glob("*.md")]
+    for input_doc_path in data_folder.glob("*.pdf"):
+        if input_doc_path.stem not in duplicated:
+            main(input_doc_path, output_dir)
 

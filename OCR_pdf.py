@@ -149,11 +149,12 @@ def convert_pdf_to_markdown_japanese(INPUT_PDF_PATH, output_dir):
 
 if __name__ == "__main__":
     # --- 設定項目 ---
-    data_folder = Path(__file__).parent / ""
-    output_dir = Path("")
+    data_folder = Path("/path/to/your/PDFs/directory/")
+    output_dir = Path("/path/to/your/output/directory/")
+    pdf_file = data_folder / "your_file.pdf"
+    convert_pdf_to_markdown_japanese(INPUT_PDF_PATH=str(pdf_file), output_dir=output_dir)
 
     # data_folder内のPDFファイルをループ
-    from pathlib import Path
-    pdf_files = list(Path(data_folder).glob("*.pdf"))
-    for pdf_file in pdf_files[2:]:
-        convert_pdf_to_markdown_japanese(INPUT_PDF_PATH=str(pdf_file), output_dir=output_dir)
+    #pdf_files = list(Path(data_folder).glob("*.pdf"))
+    #for pdf_file in pdf_files[2:]:
+    #    convert_pdf_to_markdown_japanese(INPUT_PDF_PATH=str(pdf_file), output_dir=output_dir)
